@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -23,7 +24,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-108" y="64"/>
+            <point key="canvasLocation" x="-138" y="-22"/>
         </scene>
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -62,8 +63,8 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Notecards" id="tQt-TN-PWz">
-                        <barButtonItem key="rightBarButtonItem" title="+" systemItem="add" id="b3w-bW-vXM">
+                    <navigationItem key="navigationItem" title="Decks" id="tQt-TN-PWz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="b3w-bW-vXM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="newNote:" destination="pGg-6v-bdr" id="dbC-3e-1MS"/>
@@ -132,6 +133,11 @@
                                 <state key="normal" title="Button">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="0c5-5r-G6q" kind="popoverPresentation" popoverAnchorView="f6I-be-F7F" id="RdX-gC-seT">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -150,7 +156,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1396" y="-176"/>
+            <point key="canvasLocation" x="1392" y="-22"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6bX-kt-O2e">
+            <objects>
+                <viewController id="0c5-5r-G6q" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0r1-Mp-7g8"/>
+                        <viewControllerLayoutGuide type="bottom" id="RZG-iW-WJi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ndp-nx-7VA">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="New Flashcard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAN-MO-dmm">
+                                <rect key="frame" x="188" y="20" width="225" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="Wfh-EX-zSX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="35"/>
+                                <color key="textColor" red="0.34958453239999998" green="0.63699597949999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IRE-6w-mHn">
+                                <rect key="frame" x="63" y="73" width="474" height="235"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="235" id="IG4-Ta-E8P"/>
+                                </constraints>
+                                <state key="normal" title="Tap to Capture Front">
+                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIP-zD-Zmn">
+                                <rect key="frame" x="63" y="316" width="474" height="229"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <state key="normal" title="Tap to Capture Back">
+                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rA-J1-yf5">
+                                <rect key="frame" x="230" y="562" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7MV-af-xjN">
+                                <rect key="frame" x="324" y="562" width="46" height="30"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="OIP-zD-Zmn" secondAttribute="bottom" constant="20" symbolic="YES" id="I7d-5d-Fys"/>
+                            <constraint firstItem="IRE-6w-mHn" firstAttribute="leading" secondItem="Ndp-nx-7VA" secondAttribute="leadingMargin" constant="47" id="Pkb-ya-vEE"/>
+                            <constraint firstItem="DAN-MO-dmm" firstAttribute="centerX" secondItem="Ndp-nx-7VA" secondAttribute="centerX" id="Pxl-NO-X26"/>
+                            <constraint firstItem="OIP-zD-Zmn" firstAttribute="top" secondItem="IRE-6w-mHn" secondAttribute="bottom" constant="18" id="ThN-Yz-K1r"/>
+                            <constraint firstItem="IRE-6w-mHn" firstAttribute="leading" secondItem="OIP-zD-Zmn" secondAttribute="leading" id="XbQ-Bc-kKY"/>
+                            <constraint firstItem="OIP-zD-Zmn" firstAttribute="trailing" secondItem="IRE-6w-mHn" secondAttribute="trailing" id="fCS-QX-idl"/>
+                            <constraint firstItem="IRE-6w-mHn" firstAttribute="centerX" secondItem="DAN-MO-dmm" secondAttribute="centerX" id="g6H-uK-AE2"/>
+                            <constraint firstItem="IRE-6w-mHn" firstAttribute="top" secondItem="DAN-MO-dmm" secondAttribute="bottom" constant="28" id="jMq-lK-avh"/>
+                            <constraint firstItem="DAN-MO-dmm" firstAttribute="top" secondItem="0r1-Mp-7g8" secondAttribute="bottom" constant="8" symbolic="YES" id="lre-pY-dTb"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CAb-zU-7nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="725"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="wvd-PR-xUJ">
@@ -178,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nfi-sp-64M" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2041" y="-176"/>
+            <point key="canvasLocation" x="2035" y="-22"/>
         </scene>
     </scenes>
 </document>
