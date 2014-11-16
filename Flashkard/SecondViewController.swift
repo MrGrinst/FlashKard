@@ -11,11 +11,17 @@ import UIKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var newImgView: UIImageView!
+    var name: AnyObject? {
+        get {
+            return NSUserDefaults.standardUserDefaults().objectForKey("name")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        newImgView.image = UIImage(named: name as String)
     }
 
     override func didReceiveMemoryWarning() {

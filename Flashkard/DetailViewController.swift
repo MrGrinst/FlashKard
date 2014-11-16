@@ -9,6 +9,16 @@
 import UIKit
 
 class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var arr : [String] = []
+    var name: AnyObject? {
+        get {
+            return NSUserDefaults.standardUserDefaults().objectForKey("name")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setObject(newValue!, forKey: "name")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
@@ -33,6 +43,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        arr = ["notecard.png","notecard.png", "notecard.png"]
     }
 
     override func didReceiveMemoryWarning() {
