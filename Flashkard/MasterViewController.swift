@@ -17,7 +17,7 @@ class MasterViewController: UITableViewController, UICollectionViewDataSource, U
         }
         set {
             NSUserDefaults.standardUserDefaults().setObject(newValue!, forKey: "name")
-            
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
     
@@ -123,7 +123,7 @@ class MasterViewController: UITableViewController, UICollectionViewDataSource, U
     
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        <#code#>
+        name = arr[indexPath.row]
     }
     
 }
