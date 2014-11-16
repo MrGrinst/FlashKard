@@ -11,6 +11,15 @@ import UIKit
 class MasterViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
     
     var arr : [String] = []
+    var name: AnyObject? {
+        get {
+            return NSUserDefaults.standardUserDefaults().objectForKey("name")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setObject(newValue!, forKey: "name")
+            
+        }
+    }
     
     var decks: [Deck] = []
 
@@ -103,12 +112,19 @@ class MasterViewController: UITableViewController, UICollectionViewDataSource, U
         }
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
-    }
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        <#code#>
+        return arr.count
     }
     
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as myViewCell
+        cell.imgView.image=UIImage(named: arr[indexPath.row])
+        return cell
+    
+    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        <#code#>
+    }
     
 }
 
