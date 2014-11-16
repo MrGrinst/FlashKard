@@ -10,6 +10,8 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var newImgView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
