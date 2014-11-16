@@ -89,6 +89,8 @@
 			children = (
 				3F74106D1A182324000E8317 /* AppDelegate.swift */,
 				3F74106F1A182324000E8317 /* MasterViewController.swift */,
+				3F9267081A182DC400D00AD3 /* Deck.xcdatamodeld */,
+				3F92670B1A182E0200D00AD3 /* Notecard.xcdatamodeld */,
 				3F7410711A182324000E8317 /* DetailViewController.swift */,
 				3F7410731A182324000E8317 /* Main.storyboard */,
 				3F7410761A182324000E8317 /* Images.xcassets */,
@@ -229,6 +231,7 @@
 			files = (
 				5F30BB4A1A182D0700F82706 /* Deck.swift in Sources */,
 				3F7410721A182324000E8317 /* DetailViewController.swift in Sources */,
+				3F92670D1A182E0200D00AD3 /* Notecard.xcdatamodeld in Sources */,
 				3F7410701A182324000E8317 /* MasterViewController.swift in Sources */,
 				5F30BB451A182AE800F82706 /* Card.swift in Sources */,
 				3F74106E1A182324000E8317 /* AppDelegate.swift in Sources */,
