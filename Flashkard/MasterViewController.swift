@@ -16,6 +16,18 @@ class MasterViewController: UITableViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    @IBAction func editDeck(sender: AnyObject) {
+        
+    }
+    
+    
+    @IBAction func newNote(sender: AnyObject) {
+        
+        
+    }
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
