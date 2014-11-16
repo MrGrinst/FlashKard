@@ -14,6 +14,8 @@
 		3F7410771A182324000E8317 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7410761A182324000E8317 /* Images.xcassets */; };
 		3F74107A1A182324000E8317 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F7410781A182324000E8317 /* LaunchScreen.xib */; };
 		3F7410861A182324000E8317 /* FlashkardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7410851A182324000E8317 /* FlashkardTests.swift */; };
+		3F92670A1A182DC400D00AD3 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F9267081A182DC400D00AD3 /* Deck.xcdatamodeld */; };
+		3F92670D1A182E0200D00AD3 /* Notecard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F92670B1A182E0200D00AD3 /* Notecard.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		3F74107F1A182324000E8317 /* FlashkardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashkardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7410841A182324000E8317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7410851A182324000E8317 /* FlashkardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashkardTests.swift; sourceTree = "<group>"; };
+		3F9267091A182DC400D00AD3 /* Deck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deck.xcdatamodel; sourceTree = "<group>"; };
+		3F92670C1A182E0200D00AD3 /* Notecard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notecard.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 			children = (
 				3F74106D1A182324000E8317 /* AppDelegate.swift */,
 				3F74106F1A182324000E8317 /* MasterViewController.swift */,
+				3F9267081A182DC400D00AD3 /* Deck.xcdatamodeld */,
+				3F92670B1A182E0200D00AD3 /* Notecard.xcdatamodeld */,
 				3F7410711A182324000E8317 /* DetailViewController.swift */,
 				3F7410731A182324000E8317 /* Main.storyboard */,
 				3F7410761A182324000E8317 /* Images.xcassets */,
@@ -215,7 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F92670A1A182DC400D00AD3 /* Deck.xcdatamodeld in Sources */,
 				3F7410721A182324000E8317 /* DetailViewController.swift in Sources */,
+				3F92670D1A182E0200D00AD3 /* Notecard.xcdatamodeld in Sources */,
 				3F7410701A182324000E8317 /* MasterViewController.swift in Sources */,
 				3F74106E1A182324000E8317 /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +417,7 @@
 				3F74108B1A182324000E8317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F74108C1A182324000E8317 /* Build configuration list for PBXNativeTarget "FlashkardTests" */ = {
 			isa = XCConfigurationList;
@@ -417,8 +426,32 @@
 				3F74108E1A182324000E8317 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3F9267081A182DC400D00AD3 /* Deck.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F9267091A182DC400D00AD3 /* Deck.xcdatamodel */,
+			);
+			currentVersion = 3F9267091A182DC400D00AD3 /* Deck.xcdatamodel */;
+			path = Deck.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		3F92670B1A182E0200D00AD3 /* Notecard.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3F92670C1A182E0200D00AD3 /* Notecard.xcdatamodel */,
+			);
+			currentVersion = 3F92670C1A182E0200D00AD3 /* Notecard.xcdatamodel */;
+			path = Notecard.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F7410601A182324000E8317 /* Project object */;
 }
