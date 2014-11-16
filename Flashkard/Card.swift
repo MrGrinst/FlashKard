@@ -13,6 +13,5 @@ import CoreData
 class Card: NSManagedObject {
     @NSManaged var frontImage: NSData
     @NSManaged var backImage: NSData
-    @NSManaged var sortPosition: Int
     @NSManaged var deck: Deck
 }

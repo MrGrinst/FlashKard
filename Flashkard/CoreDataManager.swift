@@ -18,17 +18,21 @@ class CoreDataManager {
         return Static.instance
     }
     
-    func sortPosition() -> Int {
-        struct Holder {
-            static var timesCalled = 0
-        }
-        return ++Holder.timesCalled;
-    }
-
-    
     func saveContext() {
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         appDelegate.saveContext()
+    }
+    
+    func createNewDeck(name: String) -> Deck {
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var context = appDelegate.managedObjectContext!
+        var deck = NSEntityDescription.insertNewObjectForEntityForName("Deck", inManagedObjectContext: context) as Deck
+        
+        deck.name = name
+        
+        self.saveContext()
+        
+        return deck
     }
     
     func createNewCard() -> Card {
@@ -36,11 +40,18 @@ class CoreDataManager {
         var context = appDelegate.managedObjectContext!
         var card = NSEntityDescription.insertNewObjectForEntityForName("Card", inManagedObjectContext: context) as Card
         
-        card.sortPosition = sortPosition()
-        
         self.saveContext()
         
         return card
+    }
+    
+    func deleteDeck(deck: Deck) {
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var context = appDelegate.managedObjectContext!
+        
+        context.deleteObject(deck)
+        
+        self.saveContext()
     }
     
     func deleteCard(card: Card) {
