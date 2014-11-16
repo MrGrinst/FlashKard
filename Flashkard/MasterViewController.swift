@@ -8,19 +8,9 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
+class MasterViewController: UITableViewController  {
     
-    var arr : [String] = []
-    var name: AnyObject? {
-        get {
-            return NSUserDefaults.standardUserDefaults().objectForKey("name")
-        }
-        set {
-            NSUserDefaults.standardUserDefaults().setObject(newValue!, forKey: "name")
-            NSUserDefaults.standardUserDefaults().synchronize()
-        }
-    }
-    
+        
     var decks: [Deck] = []
 
     override func awakeFromNib() {
@@ -34,7 +24,6 @@ class MasterViewController: UITableViewController, UICollectionViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         decks = CoreDataManager.sharedInstance.fetchDecks().reverse()
-        arr = ["notecard.png","notecard.png", "notecard.png"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -111,20 +100,5 @@ class MasterViewController: UITableViewController, UICollectionViewDataSource, U
             insertDeck()
         }
     }
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arr.count
-    }
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as myViewCell
-        cell.imgView.image=UIImage(named: arr[indexPath.row])
-        return cell
-    
-    }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        name = arr[indexPath.row]
-    }
-    
 }
 

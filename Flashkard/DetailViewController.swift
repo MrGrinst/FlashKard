@@ -8,7 +8,17 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+    var arr : [String] = []
+    var name: AnyObject? {
+        get {
+            return NSUserDefaults.standardUserDefaults().objectForKey("name")
+        }
+        set {
+            NSUserDefaults.standardUserDefaults().setObject(newValue!, forKey: "name")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
+    }
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
 
@@ -33,10 +43,25 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
+        arr = ["notecard.png","notecard.png", "notecard.png"]
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arr.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as myViewCell
+        cell.imgView.image=UIImage(named: arr[indexPath.row])
+        return cell
+        
+    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        name = arr[indexPath.row]
     }
 }
