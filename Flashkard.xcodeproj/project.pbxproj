@@ -14,8 +14,10 @@
 		3F7410771A182324000E8317 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F7410761A182324000E8317 /* Images.xcassets */; };
 		3F74107A1A182324000E8317 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3F7410781A182324000E8317 /* LaunchScreen.xib */; };
 		3F7410861A182324000E8317 /* FlashkardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7410851A182324000E8317 /* FlashkardTests.swift */; };
-		3F92670A1A182DC400D00AD3 /* Deck.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F9267081A182DC400D00AD3 /* Deck.xcdatamodeld */; };
-		3F92670D1A182E0200D00AD3 /* Notecard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3F92670B1A182E0200D00AD3 /* Notecard.xcdatamodeld */; };
+		5F30BB431A182A4B00F82706 /* Card.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5F30BB411A182A4B00F82706 /* Card.xcdatamodeld */; };
+		5F30BB451A182AE800F82706 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30BB441A182AE800F82706 /* Card.swift */; };
+		5F30BB4A1A182D0700F82706 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30BB491A182D0700F82706 /* Deck.swift */; };
+		5F30BB4C1A182D9A00F82706 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F30BB4B1A182D9A00F82706 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,8 +42,10 @@
 		3F74107F1A182324000E8317 /* FlashkardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashkardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F7410841A182324000E8317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F7410851A182324000E8317 /* FlashkardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashkardTests.swift; sourceTree = "<group>"; };
-		3F9267091A182DC400D00AD3 /* Deck.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Deck.xcdatamodel; sourceTree = "<group>"; };
-		3F92670C1A182E0200D00AD3 /* Notecard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Notecard.xcdatamodel; sourceTree = "<group>"; };
+		5F30BB421A182A4B00F82706 /* FlashKard.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlashKard.xcdatamodel; sourceTree = "<group>"; };
+		5F30BB441A182AE800F82706 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		5F30BB491A182D0700F82706 /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		5F30BB4B1A182D9A00F82706 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,10 @@
 				3F7410761A182324000E8317 /* Images.xcassets */,
 				3F7410781A182324000E8317 /* LaunchScreen.xib */,
 				3F74106B1A182324000E8317 /* Supporting Files */,
+				5F30BB411A182A4B00F82706 /* Card.xcdatamodeld */,
+				5F30BB441A182AE800F82706 /* Card.swift */,
+				5F30BB491A182D0700F82706 /* Deck.swift */,
+				5F30BB4B1A182D9A00F82706 /* CoreDataManager.swift */,
 			);
 			path = Flashkard;
 			sourceTree = "<group>";
@@ -221,11 +229,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F92670A1A182DC400D00AD3 /* Deck.xcdatamodeld in Sources */,
+				5F30BB4A1A182D0700F82706 /* Deck.swift in Sources */,
 				3F7410721A182324000E8317 /* DetailViewController.swift in Sources */,
 				3F92670D1A182E0200D00AD3 /* Notecard.xcdatamodeld in Sources */,
 				3F7410701A182324000E8317 /* MasterViewController.swift in Sources */,
+				5F30BB451A182AE800F82706 /* Card.swift in Sources */,
 				3F74106E1A182324000E8317 /* AppDelegate.swift in Sources */,
+				5F30BB4C1A182D9A00F82706 /* CoreDataManager.swift in Sources */,
+				5F30BB431A182A4B00F82706 /* Card.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,23 +442,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		3F9267081A182DC400D00AD3 /* Deck.xcdatamodeld */ = {
+		5F30BB411A182A4B00F82706 /* Card.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3F9267091A182DC400D00AD3 /* Deck.xcdatamodel */,
+				5F30BB421A182A4B00F82706 /* FlashKard.xcdatamodel */,
 			);
-			currentVersion = 3F9267091A182DC400D00AD3 /* Deck.xcdatamodel */;
-			path = Deck.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		3F92670B1A182E0200D00AD3 /* Notecard.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				3F92670C1A182E0200D00AD3 /* Notecard.xcdatamodel */,
-			);
-			currentVersion = 3F92670C1A182E0200D00AD3 /* Notecard.xcdatamodel */;
-			path = Notecard.xcdatamodeld;
+			currentVersion = 5F30BB421A182A4B00F82706 /* FlashKard.xcdatamodel */;
+			path = Card.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
