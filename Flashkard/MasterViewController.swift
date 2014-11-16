@@ -103,10 +103,10 @@ class MasterViewController: UITableViewController, UICollectionViewDataSource, U
         }
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return 0
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        <#code#>
+        return UICollectionViewCell()
     }
     
     
