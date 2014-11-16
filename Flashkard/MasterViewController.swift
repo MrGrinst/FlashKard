@@ -22,34 +22,32 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         decks = CoreDataManager.sharedInstance.fetchDecks()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func insertDeck() {
         var inputTextField: UITextField?
         let passwordPrompt = UIAlertController(title: "Deck Name", message: "What would you like to name this deck?", preferredStyle: UIAlertControllerStyle.Alert)
         passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-            var deck = CoreDataManager.sharedInstance.createNewDeck(inputTextField!.text)
-            self.decks.insert(deck, atIndex: 0)
-            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            if (inputTextField!.text.stringByReplacingOccurrencesOfString(" ", withString: "") == "") {
+                self.presentViewController(passwordPrompt, animated: true, completion: nil)
+            } else {
+                var deck = CoreDataManager.sharedInstance.createNewDeck(inputTextField!.text)
+                self.decks.insert(deck, atIndex: 0)
+                let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+                self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            }
         }))
         passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Name"
             inputTextField = textField
         })
-        
         presentViewController(passwordPrompt, animated: true, completion: nil)
-
     }
-
-    // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
@@ -59,8 +57,6 @@ class MasterViewController: UITableViewController {
             }
         }
     }
-
-    // MARK: - Table View
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -78,7 +74,6 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
 
