@@ -63,7 +63,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Decks" id="tQt-TN-PWz">
-                        <barButtonItem key="rightBarButtonItem" title="+" systemItem="add" id="b3w-bW-vXM">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="b3w-bW-vXM">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="newNote:" destination="pGg-6v-bdr" id="dbC-3e-1MS"/>
