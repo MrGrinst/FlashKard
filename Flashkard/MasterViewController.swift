@@ -91,7 +91,5 @@ class MasterViewController: UITableViewController {
             insertDeck()
         }
     }
-
-
 }
 
