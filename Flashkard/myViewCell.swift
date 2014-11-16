@@ -10,4 +10,7 @@ import UIKit
 
 class myViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var imgView: UIImageView!
+    
+    
 }

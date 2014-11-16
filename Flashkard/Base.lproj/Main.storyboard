@@ -117,6 +117,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
+                                            <outlet property="imgView" destination="bss-00-8Gi" id="6Ej-jj-D80"/>
                                             <segue destination="uci-3F-GWs" kind="show" id="bet-kU-2Sj"/>
                                         </connections>
                                     </collectionViewCell>
