@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
-    var arr : [String] = []
+class DetailViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, NewFlashcardViewControllerDelegate {
+    var arr : [Card] = []
     var name: AnyObject? {
         get {
             return NSUserDefaults.standardUserDefaults().objectForKey("name")
@@ -19,8 +19,18 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
             NSUserDefaults.standardUserDefaults().synchronize()
         }
     }
-
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
+    
+    @IBAction func didTapNewFlashcardButton(sender: AnyObject) {
+        var newFlashcardVC: NewFlashcardViewController = NewFlashcardViewController()
+        newFlashcardVC.delegate = self;
+        self.presentViewController(newFlashcardVC, animated: true, completion: { () -> Void in
+            NSLog("modal completion finished")
+        })
+    }
+    
+    func newFlashcardViewControllerDidCreateFlashcardSuccessfully(card: Card) {
+        arr.append(card)
+    }
 
     var detailItem: AnyObject? {
         didSet {
@@ -32,22 +42,35 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     func configureView() {
         // Update the user interface for the detail item.
         if let detail: AnyObject = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
+            self.title = detail.name
         }
-        // self.title = whatever deck was tapped in masterview
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.configureView()
-        arr = ["notecard.png","notecard.png", "notecard.png"]
+        if let detail: AnyObject = self.detailItem {
+            arr = CoreDataManager.sharedInstance.fetchCards(detail as Deck)
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return arr.count
+    }
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        
+        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as myViewCell
+        cell.imgView.image = UIImage(data: arr[indexPath.row].frontImage)
+        return cell
+        
+    }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        name = arr[indexPath.row]
     }
 }

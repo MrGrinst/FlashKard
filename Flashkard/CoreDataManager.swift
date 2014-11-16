@@ -77,4 +77,20 @@ class CoreDataManager {
         return decks! as [Deck]
     }
     
+    func fetchCards(deck: Deck) -> [Card] {
+        var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        var context = appDelegate.managedObjectContext!
+        
+        var entityDescription = NSEntityDescription.entityForName("Card", inManagedObjectContext: context)
+        var request = NSFetchRequest(entityName: "")
+        var predicate = NSPredicate(format: "deck = %@", deck)
+        request.entity = entityDescription
+        request.predicate = predicate
+        
+        var error: NSError?
+        let cards = context.executeFetchRequest(request, error: &error)
+        
+        return cards! as [Card]
+    }
+    
 }
