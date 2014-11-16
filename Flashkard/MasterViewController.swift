@@ -16,39 +16,37 @@ class MasterViewController: UITableViewController {
         super.awakeFromNib()
     }
     
-    @IBAction func editDeck(sender: AnyObject) {
-        
-    }
-    
-    
     @IBAction func newNote(sender: AnyObject) {
-        
-        
+        insertDeck()
     }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        
         decks = CoreDataManager.sharedInstance.fetchDecks()
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
-        self.navigationItem.rightBarButtonItem = addButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func insertDeck() {
+        var inputTextField: UITextField?
+        let passwordPrompt = UIAlertController(title: "Deck Name", message: "What would you like to name this deck?", preferredStyle: UIAlertControllerStyle.Alert)
+        passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            var deck = CoreDataManager.sharedInstance.createNewDeck(inputTextField!.text)
+            self.decks.insert(deck, atIndex: 0)
+            let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+            self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        }))
+        passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            textField.placeholder = "Name"
+            inputTextField = textField
+        })
+        
+        presentViewController(passwordPrompt, animated: true, completion: nil)
 
-    func insertNewObject(sender: AnyObject) {
-        var deck = CoreDataManager.sharedInstance.createNewDeck()
-        decks.insert(deck, atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 
     // MARK: - Segues
@@ -90,7 +88,7 @@ class MasterViewController: UITableViewController {
             CoreDataManager.sharedInstance.deleteDeck(deck)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
-            var deck = CoreDataManager.sharedInstance.createNewDeck()
+            insertDeck()
         }
     }
 

@@ -23,12 +23,12 @@ class CoreDataManager {
         appDelegate.saveContext()
     }
     
-    func createNewDeck() -> Deck {
+    func createNewDeck(name: String) -> Deck {
         var appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
         var context = appDelegate.managedObjectContext!
         var deck = NSEntityDescription.insertNewObjectForEntityForName("Deck", inManagedObjectContext: context) as Deck
         
-        deck.name = ""
+        deck.name = name
         
         self.saveContext()
         
