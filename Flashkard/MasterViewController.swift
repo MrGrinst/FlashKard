@@ -23,7 +23,7 @@ class MasterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        decks = CoreDataManager.sharedInstance.fetchDecks()
+        decks = CoreDataManager.sharedInstance.fetchDecks().reverse()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,10 +32,10 @@ class MasterViewController: UITableViewController {
     
     func insertDeck() {
         var inputTextField: UITextField?
-        let passwordPrompt = UIAlertController(title: "Deck Name", message: "What would you like to name this deck?", preferredStyle: UIAlertControllerStyle.Alert)
-        passwordPrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+        let namePrompt = UIAlertController(title: "Deck Name", message: "What would you like to name this deck?", preferredStyle: UIAlertControllerStyle.Alert)
+        namePrompt.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             if (inputTextField!.text.stringByReplacingOccurrencesOfString(" ", withString: "") == "") {
-                self.presentViewController(passwordPrompt, animated: true, completion: nil)
+                self.presentViewController(namePrompt, animated: true, completion: nil)
             } else {
                 var deck = CoreDataManager.sharedInstance.createNewDeck(inputTextField!.text)
                 self.decks.insert(deck, atIndex: 0)
@@ -43,11 +43,26 @@ class MasterViewController: UITableViewController {
                 self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
             }
         }))
-        passwordPrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+        namePrompt.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
             textField.placeholder = "Name"
             inputTextField = textField
         })
-        presentViewController(passwordPrompt, animated: true, completion: nil)
+        presentViewController(namePrompt, animated: true, completion: nil)
+    }
+    
+    func deleteDeck(indexPath: NSIndexPath) {
+        var deck = decks[indexPath.row]
+        let deleteConfirm = UIAlertController(title: "Delete '" + deck.name + "' deck?" , message: "Are you sure you want to delete this deck?", preferredStyle: UIAlertControllerStyle.Alert)
+        deleteConfirm.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: { (action) -> Void
+            in
+            self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .None)
+        }))
+        deleteConfirm.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+            self.decks.removeAtIndex(indexPath.row)
+            CoreDataManager.sharedInstance.deleteDeck(deck)
+            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        }))
+        presentViewController(deleteConfirm, animated: true, completion: nil)
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -80,9 +95,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            var deck = decks.removeAtIndex(indexPath.row)
-            CoreDataManager.sharedInstance.deleteDeck(deck)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            deleteDeck(indexPath)
         } else if editingStyle == .Insert {
             insertDeck()
         }
