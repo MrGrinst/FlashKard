@@ -66,7 +66,13 @@ Ideally, on this screen there would be options for cropping, adding text overlay
 
 
 
-Unfortunately, upon tapping "Create," the app crashes due to an issue with the Core Data Manager. This is one of the first things on our to-do list for the future of the app.
+Unfortunately, upon tapping "Create," the app crashes due to an issue with the Core Data Manager.
+
+##To-Do
+1. Fix the Create action.
+2. Get the set detail view fully functional.
+3. Implement a study view to flick through the sets and flip each flashcard.
+4. Alternate methods of creating a flashcard.
 
 ##Future
 We have many visions for the future of the app. Here are a few:
