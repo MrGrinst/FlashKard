@@ -12,7 +12,11 @@ Here's a quick walkthrough of how the app worked at the end of the hackathon:
 
 ####Flashcard Set Overview
 
-![Flashcard Set Overview](assets/flashcard_set_overview.png)
+
+<p align="center" >
+  <img src="assets/flashcard_set_overview.png" alt="Flashcard Set Overview" title="Flashcard Set Overview">
+</p>
+
 
 Here, users keep track of their flashcard sets. It's a simple TableView with each set in a cell. Users can tap + to add a set or swipe left and tap Delete to delete a set.
 
@@ -26,17 +30,31 @@ Once a set is tapped, a UICollectionView shows the flashcards in the set. This v
 
 ####Create Flashcard View
 
-![Create Flashcard View](assets/create_flashcard_view.png)
+
+<p align="center" >
+  <img src="assets/create_flashcard_view.png" alt="Create Flashcard View" title="Create Flashcard View">
+</p>
+
 
 Adding a flashcard is a simple process. With the app created at HackDuke, we went about this by allowing the user to take two pictures of notes for a single flashcard (one for the front, one for the back). Tapping on the two buttons opens the camera.
 
-![Camera View](assets/camera_view.png)
 
-![Use Photo View](assets/use_photo_view.png)
+<p align="center" >
+  <img src="assets/camera_view.png" alt="Camera View" title="Camera View">
+</p>
+
+
+<p align="center" >
+  <img src="assets/use_photo_view.png" alt="Use Photo View" title="Use Photo View">
+</p>
+
 
 Ideally, on this screen there would be options for cropping, adding text overlays, and highlighting.
 
-![Finished Create Flashcard View](assets/finished_create_flashcard_view.png)
+
+<p align="center" >
+  <img src="assets/finished_create_flashcard_view.png" alt="Finished Create Flashcard View" title="Finished Create Flashcard View">
+</p>
 
 ##Concept
 
