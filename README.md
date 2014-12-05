@@ -2,7 +2,7 @@
   <img src="https://raw.github.com/MrGrinst/Flashkard/assets/circle_badge.png" alt="FlashNotes" title="Flashnotes">
 </p>
 
-![FlashNotes](https://raw.github.com/MrGrinst/Flashkard/assets/circle_badge.png" alt="FlashNotes" title="Flashnotes)
+![FlashNotes](https://raw.github.com/MrGrinst/Flashkard/assets/circle_badge.png)
 
 #FlashNotes
 FlashNotes, or Simple Study or Flashkard, (name is a work in progress) is an app that turns your existing notes into flashcards. The project is a product of Luke Newman, Anish Sharma, Kevin Veloso, and Kyle Grinstead and was started at HackDuke Fall 2014 (Nov 15-16).
