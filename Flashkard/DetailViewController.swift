@@ -30,6 +30,7 @@ class DetailViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func newFlashcardViewControllerDidCreateFlashcardSuccessfully(card: Card) {
         arr.append(card)
+        //collectionView(collectionView: UICollectionView reloadData(self))
     }
 
     var detailItem: AnyObject? {
