@@ -1,5 +1,5 @@
 <p align="center" >
-  <img src="https://raw.github.com/Flashkard/Flashkard/Images.xcassets/circle_badge.imageset/circle_badge.png" alt="FlashNotes" title="Flashnotes">
+  <img src="https://raw.github.com/MrGrinst/Flashkard/Images.xcassets/circle_badge.imageset/circle_badge.png" alt="FlashNotes" title="Flashnotes">
 </p>
 
 #FlashNotes
