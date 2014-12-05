@@ -8,7 +8,13 @@ FlashNotes, or Simple Study or Flashkard, (name is a work in progress) is an app
 ##Hackathon Work
 At HackDuke, the project was started after a couple hours of ideating. In 24 hours, the team put together an iPhone application built in Swift that lets users create flashcard decks and add, delete, and edit flashcards in a particular deck.
 
-Here's a quick walkthrough of how the app worked at the end of the hackathon:
+Here's an early wireframe we made for the app:
+
+<p align="center" >
+  <img src="assets/wireframe.png" alt="Wireframe" title="Wireframe">
+</p>
+
+And here's a quick walkthrough of how the app worked at the end of the hackathon:
 
 ####Flashcard Set Overview
 
