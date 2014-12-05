@@ -3,7 +3,7 @@
 </p>
 
 #FlashNotes
-FlashNotes, or Simple Study or Flashkard, (name is a work in progress) is an app that turns your existing notes into flashcards. The project is a product of Luke Newman, Anish Sharma, Kevin Veloso, and Kyle Grinstead and was started at HackDuke Fall 2014 (Nov 15-16).
+FlashNotes (or Simple Study or FlashKard -- name is a work in progress) is an app that turns your existing notes into flashcards. The project is a product of Luke Newman, Anish Sharma, Kevin Veloso, and Kyle Grinstead and was started at HackDuke Fall 2014 (Nov 15-16).
 
 ##Hackathon Work
 At HackDuke, the project was started after a couple hours of ideating. In 24 hours, the team put together an iPhone application built in Swift that lets users create flashcard decks and add, delete, and edit flashcards in a particular deck.
