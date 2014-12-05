@@ -12,13 +12,9 @@ Here's a quick walkthrough of how the app worked at the end of the hackathon:
 
 ####Flashcard Set Overview
 
-
-
 <p align="center" >
   <img src="assets/flashcard_set_overview.png" alt="Flashcard Set Overview" title="Flashcard Set Overview">
 </p>
-
-
 
 Here, users keep track of their flashcard sets. It's a simple UITableView with each set in a cell. Users can tap + to add a set or swipe left and tap Delete to delete a set.
 
@@ -32,39 +28,25 @@ Once a set is tapped, a UICollectionView shows the flashcards in the set. This v
 
 ####Create Flashcard View
 
-
-
 <p align="center" >
   <img src="assets/create_flashcard_view.png" alt="Create Flashcard View" title="Create Flashcard View">
 </p>
 
-
-
 Adding a flashcard is a simple process. With the app created at HackDuke, we went about this by allowing the user to take two pictures of notes for a single flashcard (one for the front, one for the back). Tapping on the two buttons opens the camera.
-
-
 
 <p align="center" >
   <img src="assets/camera_view.png" alt="Camera View" title="Camera View">
 </p>
 
-
-
 <p align="center" >
   <img src="assets/use_photo_view.png" alt="Use Photo View" title="Use Photo View">
 </p>
 
-
-
 Ideally, on this screen there would be options for cropping, adding text overlays, and highlighting.
-
-
 
 <p align="center" >
   <img src="assets/finished_create_flashcard_view.png" alt="Finished Create Flashcard View" title="Finished Create Flashcard View">
 </p>
-
-
 
 Unfortunately, upon tapping "Create," the app crashes due to an issue with the Core Data Manager.
 
@@ -72,7 +54,8 @@ Unfortunately, upon tapping "Create," the app crashes due to an issue with the C
 1. Fix the Create action.
 2. Get the set detail view fully functional.
 3. Implement a study view to flick through the sets and flip each flashcard.
-4. Alternate methods of creating a flashcard.
+4. Fix AutoLayout.
+5. Alternate methods of creating a flashcard.
 
 ##Future
 We have many visions for the future of the app. Here are a few:
